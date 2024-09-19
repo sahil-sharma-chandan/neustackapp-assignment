@@ -14,18 +14,14 @@ public class ConfigLoader {
     }
 
     private void loadProperties() {
-        Properties
-                properties =
-                new Properties();
+        Properties properties = new Properties();
         try (InputStream input = getClass().getClassLoader().getResourceAsStream("config.properties")) {
             if (input == null) {
                 throw new RuntimeException("Unable to find config.properties");
             }
             properties.load(input);
-            baseUrl =
-                    properties.getProperty("Assignment.baseurl");
-            chromeDriverPath =
-                    properties.getProperty("Chrome.driver.path");
+            baseUrl = properties.getProperty("Assignment.baseurl");
+            chromeDriverPath = properties.getProperty("Chrome.driver.path");
         } catch (Exception ex) {
             throw new RuntimeException("Error loading configuration", ex);
         }
