@@ -4,10 +4,8 @@ import java.io.InputStream;
 import java.util.Properties;
 
 public class ConfigLoader {
-    private String
-            baseUrl;
-    private String
-            chromeDriverPath;
+    private String baseUrl;
+    private String chromeDriverPath;
 
     public ConfigLoader() {
         loadProperties();

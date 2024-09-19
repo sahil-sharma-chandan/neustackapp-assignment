@@ -4,16 +4,16 @@ Feature: Open Application and Title Verification of the Application
     Given I open the application URL
     Then I should see the title "Welcome"
     And Click on start a new Application
-    And Select Applicant type
-    And User should be Select product
-    And Now Enter Your First name "<FirstName>" and second name "<SecondName>"
-    And Now Enter email "<Email>"
-    And Now Enter your anual Income "<Salary>"
-    And Now user can Select the amount of Basic Life coverage
-    And Now user can enter date of birth "<DOB>"
-    And Now user can select your gender "<Gender>"
-    And Now user should be enter mobile number "<Mobile>"
+    And I select the applicant type
+    And I should select the product
+    And I now enter my first name "<FirstName>" and last name "<SecondName>"
+    And I now enter my email "<Email>"
+    And I now enter my annual income "<Salary>"
+    And I can select the amount of basic life coverage
+    And I now enter my date of birth "<DOB>"
+    And I now select my gender "<Gender>"
+    And I now enter my mobile number "<Mobile>"
 
     Examples:
-      | FirstName | SecondName | Email           | Salary | DOB      | Gender | Mobile     |
-      | Sahil     | Sharma     | sahil@gmail.com | 120000 | 20082001 | Male   | 9792727271 |
+      | FirstName | SecondName | Email           | Salary | DOB        | Gender | Mobile     |
+      | Sahil     | Sharma     | sahil@gmail.com | 120000 | 20/08/2001 | Male   | 9792727271 |

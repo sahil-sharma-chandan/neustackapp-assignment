@@ -44,7 +44,7 @@ public class stepDefnitionImple {
     }
 
     public void selectAplicantType() {
-        waitFor(9000); // You can adjust this wait if needed
+        waitFor(5000); // You can adjust this wait if needed
         WebElement aplicantType = waitUntilClickable(By.id("option-item-0"));
         aplicantType.click();
     }
@@ -62,6 +62,6 @@ public class stepDefnitionImple {
         WebElement secondNameField = waitUntilVisible(By.id("last_name"));
         secondNameField.sendKeys(secondName);
         secondNameField.sendKeys(Keys.ENTER);
-        waitFor(9000);
+        waitFor(5000);
     }
 }
