@@ -52,5 +52,20 @@ Before running the project, ensure you have the following installed:
 
 Application should now be running successfully. If you encounter any issues, make sure all prerequisites are correctly installed and configured.
 
+## Project Structure
 
+1. TestRunner: neustackapp-assignment\src\main\java\com\example\cucumber
+   - TestRunner class simplifies the process of running Cucumber tests and helps organize the project structure in a clear and efficient way.
+2. stepDefnitionImple: neustackapp-assignment\src\main\java\org\StepImple
+   - this class encapsulates the logic for interacting with the UI of the application under test, providing reusable methods that correspond to specific user actions defined in Cucumber feature files.
+3. Step Defnitions: neustackapp-assignment\src\main\java\org\steps
+   - this class serves as a bridge between the Cucumber framework and the web application, facilitating behavior-driven testing.
+4. Configuration Loader: neustackapp-assignment\src\main\java\org\utils
+   - this class centralizes configuration management, making it easier to modify settings without changing the code.
+5. Feature File: neustackapp-assignment\src\main\resources\features
+   - this feature file facilitates automated testing of the application's functionality, ensuring that key workflows operate as intended.
+6. Configuration file:  neustackapp-assignment\src\main\resources
+   - this file centralizes important configuration details that are essential for the automated testing of the web application.
 
+### Contact
+For any questions or support, please contact [sahil.chandan94@gmail.com](sahil.chandan94@gmail.com).
