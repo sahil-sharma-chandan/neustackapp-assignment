@@ -50,8 +50,10 @@ public class stepDefnitionImple {
 
     public void selectProducts() {
         waitForPageToLoad();
+        waitFor(5000);
         WebElement basicLife = waitUntilClickable(By.id("checkbox-item-3"));
         basicLife.click();
+        waitFor(5000);
         basicLife.sendKeys(Keys.ENTER);
     }
 

@@ -24,3 +24,5 @@ Before running the project, ensure you have the following installed:
 
 4. **Install IntelliJ IDEA**
     - For Windows/macOS/Linux: [Go to the IntelliJ IDEA download page](https://www.jetbrains.com/idea/download/?section=windows).
+
+

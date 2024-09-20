@@ -8,7 +8,11 @@ import org.StepImple.stepDefnitionImple;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.utils.ConfigLoader;
+
+import java.time.Duration;
 
 import static org.junit.Assert.assertEquals;
 
@@ -147,15 +151,50 @@ public class StepDefinitions {
         NextButton.click();
         waitFor(9000);
     }
-
     @And("I now select In the past ten years, or as indicated below, have you been treated for.")
     public void select_in_the_past(){
         waitFor(9000);
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 500);");
         WebElement LastTenYears = driver.findElement(By.id("checkbox-none-of-above"));
         LastTenYears.click();
         waitFor(9000);
         WebElement NextButton = driver.findElement(By.id("btn-next"));
         NextButton.click();
+        waitFor(9000);
+    }
+
+    @And("I Now select In the past ten years, or as indicated, have you been treated for.")
+    public void select_in_the_past_second() {
+        waitFor(20000);
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 500);");
+        WebElement LastTenYears = driver.findElement(By.id("checkbox-none-of-above"));
+        LastTenYears.click();
+        waitFor(9000);
+        WebElement NextButton = driver.findElement(By.id("btn-next"));
+        NextButton.click();
+    }
+
+    @And("I now choose Have consulted, been advised or been examined by any healthcare provider")
+    public void choose_consulted(){
+        waitFor(20000);
+        WebElement chooseConsultedElement = driver.findElement(By.id("radio-no"));
+        chooseConsultedElement.click();
+    }
+
+    @And("I now choose Do you currently take any medications")
+    public void choose_medicine(){
+        waitFor(20000);
+        WebElement chooseMedicineElement = driver.findElement(By.id("radio-no"));
+        chooseMedicineElement.click();
+    }
+
+    @And("I now download my preview signed application")
+    public void review_application(){
+        waitFor(20000);
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 500);");
+        waitFor(5000);
+        WebElement chooseMedicineElement = driver.findElement(By.id("btn-review-unsigned-app"));
+        chooseMedicineElement.click();
     }
 
     private void waitFor(int milliseconds) {
@@ -166,10 +205,10 @@ public class StepDefinitions {
         }
     }
 
-//    @After
-//    public void tearDown() {
-//        if (driver != null) {
-//            driver.quit();
-//        }
-//    }
+    @After
+    public void tearDown() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
 }
