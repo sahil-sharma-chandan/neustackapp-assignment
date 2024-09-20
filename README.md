@@ -68,4 +68,4 @@ Application should now be running successfully. If you encounter any issues, mak
    - this file centralizes important configuration details that are essential for the automated testing of the web application.
 
 ### Contact
-For any questions or support, please contact [sahil.chandan94@gmail.com](sahil.chandan94@gmail.com).
+For any questions or support, please contact [sahil.sharma.chandan@gmail.com](sahil.sharma.chandan@gmail.com).
