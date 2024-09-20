@@ -13,7 +13,12 @@ Feature: Open Application and Title Verification of the Application
     And I now enter my date of birth "<DOB>"
     And I now select my gender "<Gender>"
     And I now enter my mobile number "<Mobile>"
+    And I now enter my USA address "<Address>"
+    And I now select my Height from dropdown
+    And I now enter my weight in ibs "<Weight>"
+    And I now select In the past ten years, or as indicated below, have you been treated for.
+    And I now select In the past ten years, or as indicated below, have you been treated for.
 
     Examples:
-      | FirstName | SecondName | Email           | Salary | DOB        | Gender | Mobile     |
-      | Sahil     | Sharma     | sahil@gmail.com | 120000 | 20/08/2001 | Male   | 9792727271 |
+      | FirstName | SecondName | Email           | Salary | DOB        | Gender | Mobile     | Address                       | Weight |
+      | Sahil     | Sharma     | sahil@gmail.com | 120000 | 20/08/2001 | Male   | 9792727271 | Mohawk Boulevard, Springfield | 70     |

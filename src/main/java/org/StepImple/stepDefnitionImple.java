@@ -3,7 +3,6 @@ package org.StepImple;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
 
 public class stepDefnitionImple {
@@ -44,7 +43,7 @@ public class stepDefnitionImple {
     }
 
     public void selectAplicantType() {
-        waitFor(5000); // You can adjust this wait if needed
+        waitFor(5000);
         WebElement aplicantType = waitUntilClickable(By.id("option-item-0"));
         aplicantType.click();
     }

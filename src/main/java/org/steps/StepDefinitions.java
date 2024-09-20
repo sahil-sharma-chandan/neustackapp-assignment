@@ -50,6 +50,7 @@ public class StepDefinitions {
 
     @And("I now enter my first name {string} and last name {string}")
     public void enter_name(String firstName, String secondName) {
+        waitFor(5000);
         stepDefnitionImple.enterName(firstName, secondName);
         waitFor(5000);
     }
@@ -109,6 +110,54 @@ public class StepDefinitions {
         MobileInput.sendKeys(Keys.ENTER);
     }
 
+    @And("I now enter my USA address {string}")
+    public void user_enter_usa_address(String address){
+        waitFor(5000);
+        WebElement AddressInput = driver.findElement(By.id("address-input-autocomplete"));
+        AddressInput.sendKeys(address);
+        waitFor(5000);
+        AddressInput.sendKeys(Keys.ARROW_DOWN);
+        AddressInput.sendKeys(Keys.ENTER);
+        WebElement AgreeConsonent = driver.findElement(By.id("address-check-auth-release-agree"));
+        AgreeConsonent.click();
+        WebElement AgreeHipaanotice = driver.findElement(By.id("address-check-consent-business"));
+        AgreeHipaanotice.click();
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 500);");
+        waitFor(5000);
+        WebElement NextButton = driver.findElement(By.id("btn-next"));
+        NextButton.click();
+    }
+
+    @And("I now select my Height from dropdown")
+    public void select_height(){
+        waitFor(5000);
+        WebElement dropdownElement = driver.findElement(By.id("dropdown-height"));
+        dropdownElement.click();
+        WebElement selectHeight = driver.findElement(By.cssSelector("#headlessui-menu-item-\\:rc\\:"));
+        selectHeight.click();
+    }
+
+    @And("I now enter my weight in ibs {string}")
+    public void enter_weight(String weight){
+        waitFor(9000);
+        WebElement WeightInput = driver.findElement(By.id("input-weight"));
+        WeightInput.sendKeys(weight);
+        waitFor(9000);
+        WebElement NextButton = driver.findElement(By.id("btn-next"));
+        NextButton.click();
+        waitFor(9000);
+    }
+
+    @And("I now select In the past ten years, or as indicated below, have you been treated for.")
+    public void select_in_the_past(){
+        waitFor(9000);
+        WebElement LastTenYears = driver.findElement(By.id("checkbox-none-of-above"));
+        LastTenYears.click();
+        waitFor(9000);
+        WebElement NextButton = driver.findElement(By.id("btn-next"));
+        NextButton.click();
+    }
+
     private void waitFor(int milliseconds) {
         try {
             Thread.sleep(milliseconds);
@@ -117,10 +166,10 @@ public class StepDefinitions {
         }
     }
 
-    @After
-    public void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
-    }
+//    @After
+//    public void tearDown() {
+//        if (driver != null) {
+//            driver.quit();
+//        }
+//    }
 }
