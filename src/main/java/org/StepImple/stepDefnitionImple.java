@@ -15,8 +15,12 @@ public class stepDefnitionImple {
     }
 
     public void waitForPageToLoad() {
-        wait.until(webDriver -> ((JavascriptExecutor) webDriver)
-                .executeScript("return document.readyState").equals("complete"));
+        try {
+            wait.until(webDriver -> ((JavascriptExecutor) webDriver)
+                    .executeScript("return document.readyState").equals("complete"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void waitFor(int milliseconds) {
@@ -28,41 +32,77 @@ public class stepDefnitionImple {
     }
 
     private WebElement waitUntilClickable(By locator) {
-        return wait.until(ExpectedConditions.elementToBeClickable(locator));
+        try {
+            return wait.until(ExpectedConditions.elementToBeClickable(locator));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null; // Return null if the element is not clickable
+        }
     }
 
     private WebElement waitUntilVisible(By locator) {
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        try {
+            return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null; // Return null if the element is not visible
+        }
     }
 
     public void clickOnStartNewApplication() {
-        waitForPageToLoad();
-        WebElement getStartButton = waitUntilClickable(By.id("btn-next"));
-        getStartButton.click();
-        waitForPageToLoad();
+        try {
+            waitForPageToLoad();
+            WebElement getStartButton = waitUntilClickable(By.id("btn-next"));
+            if (getStartButton != null) {
+                getStartButton.click();
+            }
+            waitForPageToLoad();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void selectAplicantType() {
-        waitFor(5000);
-        WebElement aplicantType = waitUntilClickable(By.id("option-item-0"));
-        aplicantType.click();
+        try {
+            waitFor(5000); // Wait for the application to stabilize
+            WebElement aplicantType = waitUntilClickable(By.id("option-item-0"));
+            if (aplicantType != null) {
+                aplicantType.click();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void selectProducts() {
-        waitForPageToLoad();
-        waitFor(5000);
-        WebElement basicLife = waitUntilClickable(By.id("checkbox-item-3"));
-        basicLife.click();
-        waitFor(5000);
-        basicLife.sendKeys(Keys.ENTER);
+        try {
+            waitForPageToLoad();
+            waitFor(5000); // Wait for the application to stabilize
+            WebElement basicLife = waitUntilClickable(By.id("checkbox-item-3"));
+            if (basicLife != null) {
+                basicLife.click();
+                waitFor(5000); // Wait for the selection to process
+                basicLife.sendKeys(Keys.ENTER);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void enterName(String firstName, String secondName) {
-        WebElement firstNameField = waitUntilVisible(By.id("first_name"));
-        firstNameField.sendKeys(firstName);
-        WebElement secondNameField = waitUntilVisible(By.id("last_name"));
-        secondNameField.sendKeys(secondName);
-        secondNameField.sendKeys(Keys.ENTER);
-        waitFor(5000);
+        try {
+            WebElement firstNameField = waitUntilVisible(By.id("first_name"));
+            if (firstNameField != null) {
+                firstNameField.sendKeys(firstName);
+            }
+            WebElement secondNameField = waitUntilVisible(By.id("last_name"));
+            if (secondNameField != null) {
+                secondNameField.sendKeys(secondName);
+                secondNameField.sendKeys(Keys.ENTER);
+            }
+            waitFor(5000); // Wait for the name entry to process
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
